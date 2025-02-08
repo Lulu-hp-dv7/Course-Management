@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CycleController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -8,4 +9,9 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return view('layout');
+});
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::resource('cycle', CycleController::class);
+    Route::post('cycle-import', [CycleController::class, 'import'])->name('cycle.import');
+    Route::get('cycle-export', [CycleController::class, 'export'])->name('cycle.export');
 });

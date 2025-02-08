@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Laravel</title>
+  <title>@yield('title') | Emplois du temps</title>
 
   <!-- Fonts -->
 
@@ -40,11 +40,11 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="/dashboard">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span>
         </a>
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{ route('admin.cycle.index')}}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Cycles</span>
         </a>
@@ -352,8 +352,9 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
+          <h1 class="h1 mb-4 text-gray-800">@yield('title')</h1>
 
+          @yield('content')
         </div>
         <!-- /.container-fluid -->
 
