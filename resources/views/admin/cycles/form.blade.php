@@ -1,19 +1,22 @@
 @extends('layout')
 
+@section('title', $cycle->exists? "Editer un cycle" : "Ajouter un cycle")
+
 @section('content')
 <div class="card mt-5">
-    <h2 class="card-header">Ajouter Un Cycle</h2>
+    
     <div class="card-body">
     
       <div class="d-grid gap-2 d-md-flex justify-content-md-end">
           <a class="btn btn-primary btn-sm" href="{{route("admin.cycle.index") }}"><i class="fa fa-arrow-left"></i> Back</a>
       </div>
     
-      <form action="{{ route('admin.cycle.store') }}" method="POST">
+      <form action="{{ route($cycle->exists? 'admin.cycle.update' : 'admin.cycle.store', $cycle->id) }}" method="POST">
           @csrf
-    
+          @method($cycle->exists ? 'PUT' : 'POST')
+
           <div class="mb-3">
-              <label for="inputName" class="form-label"><strong>Title:</strong></label>
+              <label for="inputName" class="form-label"><strong>Nom:</strong></label>
               <input 
                   type="text" 
                   name="name" 
@@ -38,7 +41,16 @@
                   <div class="form-text text-danger">{{ $message }}</div>
               @enderror
           </div>
-          <button type="submit" class="btn btn-success"><i class="fa-solid fa-floppy-disk"></i> Sauvegarder</button>
+          <button type="submit" class="btn btn-success">
+            <i class="fa-solid fa-floppy-disk"></i> 
+
+            @if ($cycle->exists)
+                Sauvegarder les modifications
+            @else
+                Ajouter
+            @endif
+            
+        </button>
       </form>
     
     </div>

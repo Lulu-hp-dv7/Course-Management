@@ -116,7 +116,7 @@ class CycleController extends Controller
      */
     public function edit(Cycle $cycle)
     {
-        return view('admin.cycles.edit', compact('cycle'));
+        return view('admin.cycles.form', compact('cycle'));
     }
 
     /**
