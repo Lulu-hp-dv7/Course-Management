@@ -13,6 +13,14 @@ La Plateforme de Gestion et de suivi des emplois du temps à l’institut Supér
 
 ## Analyse des besoin
 
+## Identification des acteurs
+
+Cycle(id_cycle, nom, description, nb_niveau)
+
+Niveau(id_niveau, numero, nom, description)
+
+Cycle 1 -- 1..* Niveau
+
 ### Diagramme des cas Utilisation
 
 ![Diagrame de cas d'utilisation](design\useCase-Diagram.png)

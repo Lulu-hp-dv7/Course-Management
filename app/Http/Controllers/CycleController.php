@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\cycle\CycleUpdateRequest;
 use App\Http\Requests\cycle\CycleStoreRequest;
 use App\Models\Cycle;
+use App\Models\Level;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use PhpOffice\PhpSpreadsheet\IOFactory;
@@ -47,15 +48,20 @@ class CycleController extends Controller
         if ($request->hasFile('csv_file')) {
 
             $request->validate([
-                'csv_file' => 'required|mimes:csv,xlsx,txt|max:2048'
+                'csv_file' => 'required|mimes:csv,xlsx,txt|max:2048',
             ]);
 
             $file = $request->file('csv_file');
 
             // Process the file and import data
+            // reading of document
             $spreadsheet = IOFactory::load($file->getPathname());
-            $sheet2 = $spreadsheet->getSheet(1);
-            $dataSheet1  = $sheet2->toArray();
+            // get sheet 2 of document
+            $sheet1 = $spreadsheet->getSheet(0);
+            //dd($sheet1->getTitle());
+            $dataSheet1  = $sheet1->toArray();
+            
+            //dd($dataSheet1);
 
             //dd($dataSheet1 );
             foreach ($dataSheet1  as $key => $row) {
@@ -63,9 +69,19 @@ class CycleController extends Controller
                     continue;
                 }
                 Cycle::create([
-                    'name' => $row[0],
-                    'description' => $row[1]
+                    'code' => $row[0],
+                    'name' => $row[1],
+                    'description' => $row[2],
+                    'nb_level' => $row[3]
                 ]);
+                $index = Cycle::where('code', $row[0])->firstOrFail()->getAttribute('id');
+                for ($i=1; $i <= $row[3]; $i++) { 
+                    Level::create([
+                        'name'=> $row[0] .' '. $i, 
+                        'number'=> $i,
+                        'cycle_id'=> $index
+                    ]);
+                }
             }
             return redirect()->route('admin.cycle.index')
                 ->with('success', 'Data imported successfully');
@@ -98,7 +114,7 @@ class CycleController extends Controller
     {
 
         Cycle::create($request->validated());
-
+        
         return redirect()->route("admin.cycle.index")
             ->with('success', 'Cycle créer avec succes');
     }

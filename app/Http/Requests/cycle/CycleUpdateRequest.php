@@ -28,7 +28,9 @@ class CycleUpdateRequest extends FormRequest
                 'min:4',
                 Rule::unique('cycles', 'name')->ignore($this->cycle)
             ],
-            'description' => 'required|min:4'
+            'description' => 'required|min:4',
+            'code' => 'required|min:3',
+            'nb_level' => 'required|min:1'
         ];
     }
 }

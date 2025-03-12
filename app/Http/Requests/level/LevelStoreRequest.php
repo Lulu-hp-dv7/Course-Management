@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\cycle;
+namespace App\Http\Requests\level;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CycleStoreRequest extends FormRequest
+class LevelStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,10 +22,9 @@ class CycleStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|min:4|unique:cycles,name',
-            'description' => 'required|min:4',
-            'code' => 'required|min:3',
-            'nb_level' => 'required|min:1'
+            'name' => 'required|min:4',
+            'number' => 'required|integer|min:0',
+            'cycle_id' => 'exists:cycles,id|required'
         ];
     }
 }

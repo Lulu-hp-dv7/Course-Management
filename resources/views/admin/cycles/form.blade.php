@@ -16,31 +16,48 @@
           @method($cycle->exists ? 'PUT' : 'POST')
 
           <div class="mb-3">
-              <label for="inputName" class="form-label"><strong>Nom:</strong></label>
-              <input 
-                  type="text" 
-                  name="name" 
-                  class="form-control @error('name') is-invalid @enderror"
-                  id="inputName" 
-                  value="{{ old('name', $cycle->name) }}"
-                  placeholder="Nom du cycle">
-              @error('name')
-                  <div class="form-text text-danger">{{ $message }}</div>
-              @enderror
-          </div>
-    
-          <div class="mb-3">
-              <label for="inputContent" class="form-label"><strong>Description:</strong></label>
-              <textarea 
-                  class="form-control @error('description') is-invalid @enderror" 
-                  style="height:150px" 
-                  name="description" 
-                  id="inputContent" 
-                  placeholder="Description du cycle">{{ old('description', $cycle->description) }}</textarea>
-              @error('description')
-                  <div class="form-text text-danger">{{ $message }}</div>
-              @enderror
-          </div>
+            @include('components.label', [
+                'label' => 'Code',
+                'class' => 'form-label',
+                'name' => "code", 
+                'type' => "text" ,
+                'value' => $cycle->code,
+                'placeholder' => "Code"
+            ])
+            </div>
+          
+            <div class="mb-3">
+                @include('components.label', [
+                    'label' => 'Nom',
+                    'class' => 'form-label',
+                    'name' => "name", 
+                    'type' => "text" ,
+                    'value' => $cycle->name,
+                    'placeholder' => "Nom du cycle"
+                ])
+            </div>
+
+            <div class="mb-3">
+                @include('components.label', [
+                    'label' => 'Nombre De niveau',
+                    'class' => 'form-label',
+                    'name' => "nb_level", 
+                    'type' => "number" ,
+                    'value' => $cycle->nb_level,
+                    'placeholder' => "Nombre De niveau"
+                ])
+            </div>
+              
+            <div class="mb-3">
+                @include('components.label', [
+                    'label' => 'Description',
+                    'class' => 'form-label',
+                    'name' => "description", 
+                    'value' => $cycle->description,
+                    'placeholder' => "Description du cycle"
+                ])
+            </div>
+
           <button type="submit" class="btn btn-success">
             <i class="fa-solid fa-floppy-disk"></i> 
 

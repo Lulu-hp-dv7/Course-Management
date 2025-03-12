@@ -5,17 +5,6 @@
 @section('content')
 
     
-
-    <form action="{{route("admin.cycle.import")}}" method="POST" enctype="multipart/form-data">
-        @csrf
-        <div class="input-group mt-2">
-            <input class="custom-file form-control-file border" type="file" name="csv_file" id="csv_file">
-        </div>
-        <div class="mt-2">
-            <button class="btn btn-primary" type="submit">Import Users</button>
-        </div>
-    </form>
-    
     @session('success')
         <div class="alert alert-success" role="alert"> {{ $value }} </div>
     @endsession
@@ -38,8 +27,10 @@
                 </th>
             </tr>
             <tr>
+                <th>ID</th>
+                <th>Code</th>
                 <th>Name</th>
-                <th>Description</th>
+                <th>Nombre d'année</th>
                 <th>Operations</th>
             </tr>
         </thead>
@@ -47,8 +38,10 @@
         <tbody>
             @forelse ($cycles as $post)
             <tr>
+                <td>{{ $post->id}}</td>
+                <td>{{ $post->code}}</td>
                 <td>{{ $post->name}}</td>
-                <td>{{Str::limit($post->description, 50) }}</td>
+                <td>{{Str::limit($post->nb_level, 50) }}</td>
                 <td>
                     <form action="{{ route('admin.cycle.destroy',$post->id) }}" method="POST">
                         <a class="btn btn-info btn-sm" href="{{ route("admin.cycle.show",$post->id) }}"><i class="fas fa-eye"></i> Show</a>
@@ -68,4 +61,16 @@
             @endforelse
         </tbody>
     </table>
+
+    <h2>Importation du fichier Excel</h2>
+    
+    <form action="{{route("admin.cycle.import")}}" method="POST" enctype="multipart/form-data">
+        @csrf
+        <div class="input-group mt-2">
+            <input class="custom-file form-control-file border" type="file" name="csv_file" id="csv_file">
+        </div>
+        <div class="mt-2">
+            <button class="btn btn-primary" type="submit">Importer</button>
+        </div>
+    </form>
 @endsection
