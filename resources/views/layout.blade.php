@@ -52,6 +52,10 @@
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Niveau</span>
         </a>
+        <a class="nav-link" href="{{ route('admin.ue.index')}}">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>unités d'enseignement</span>
+        </a>
       </li>
 
       <!-- Divider -->
