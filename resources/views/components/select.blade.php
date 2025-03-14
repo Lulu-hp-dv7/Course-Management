@@ -20,7 +20,7 @@
         <select class="form-select" name="{{ $name }}" id="{{ $name }}">
             <option>-Veuillez Choisir-</option>
             @foreach ($items as $key => $val)
-                <option @selected(old($name, $id)) value="{{ $key }}">{{ $val }}</option>
+                <option @selected(old($name, $value)) value="{{ $key }}">{{ $val }}</option>
             @endforeach
         </select>
     @endif

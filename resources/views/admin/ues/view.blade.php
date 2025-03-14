@@ -18,6 +18,18 @@
             <p class="card-title">Heures Travaux Dirigés: {{ $ue->hTD }}h</p>
             <p class="card-title">Heures Travaux Pratiques: {{ $ue->hTP }}h</p>
             <p class="card-text">Créé Depuis: {{ $ue->created_at->format('d-m-Y') }}</p>
+            @if ($ue->courses)
+            <h4>Liste des cours Associés</h4>
+            <ul class="list-group list-group-flush">
+                @foreach ($ue->courses as $course)
+                    <li class="list-group-item">
+                        <a class="btn link-info" href="{{route("admin.course.show",$course->id)}}">
+                            {{$course->name_course}}
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
+        @endif
         </div>
     </div>
 </div>

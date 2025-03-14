@@ -6,6 +6,7 @@ use App\Http\Requests\cycle\CycleUpdateRequest;
 use App\Http\Requests\cycle\CycleStoreRequest;
 use App\Models\Cycle;
 use App\Models\Level;
+use App\Models\Semester;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use PhpOffice\PhpSpreadsheet\IOFactory;
@@ -64,9 +65,14 @@ class CycleController extends Controller
             //dd($dataSheet1);
 
             //dd($dataSheet1 );
+            $nb_level_max = 0;
+            // LECTURE DES TUPLES SUR EXCEL
             foreach ($dataSheet1  as $key => $row) {
                 if ($key == 0) {
                     continue;
+                }
+                if ($nb_level_max <  $row[3]) {
+                    $nb_level_max = $row[3];
                 }
                 Cycle::create([
                     'code' => $row[0],
@@ -82,6 +88,11 @@ class CycleController extends Controller
                         'cycle_id'=> $index
                     ]);
                 }
+            }
+            for ($i=1; $i <= $nb_level_max * 2; $i++) { 
+                Semester::create([
+                    'name_sem'=> 'Semestre '. $i, 
+                ]);
             }
             return redirect()->route('admin.cycle.index')
                 ->with('success', 'Data imported successfully');

@@ -19,4 +19,8 @@ class UE extends Model
     public function semester() {
         return $this->belongsTo(Semester::class);
     }
+
+    public function courses() {
+        return $this->belongsToMany(Course::class);
+    }
 }
