@@ -4,7 +4,6 @@
 
 @section('content')
 <div class="card mt-5">
-    
     <div class="card-body">
     
       <div class="d-grid gap-2 d-md-flex justify-content-md-end">

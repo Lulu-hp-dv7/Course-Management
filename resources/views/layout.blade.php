@@ -24,11 +24,11 @@
   <!-- Page Wrapper -->
   <div id="wrapper">
     @php
-        $routeName = request()->route()->getName();
+    $routeName = request()->route()->getName();
     @endphp
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-      
+
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div class="sidebar-brand-icon rotate-n-15">
@@ -42,73 +42,71 @@
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
-      <li @class([
-        'nav-item',
-				'active' => $routeName == str_contains($routeName, 'dashboard'),
-			])>
-        <a class="nav-link" href="/dashboard">
+      <li @class([ 'nav-item' , 'active'=> str_contains($routeName, '.dashbord') ])>
+        <a class="nav-link" href="{{ route('admin.dashbord')}}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span>
         </a>
       </li>
-      <li @class([
-        'nav-item',
-				'active' => $routeName == str_contains($routeName, '.cycle.'),
-			])>
+      <li @class([ 'nav-item' , 'active'=> str_contains($routeName, '.cycle.'),
+        ])>
         <a class="nav-link" href="{{ route('admin.cycle.index')}}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Cycles</span>
         </a>
       </li>
-      <li @class([
-        'nav-item',
-				'active' => $routeName == str_contains($routeName, '.level.'),
-			])>
+      <li @class([ 'nav-item' , 'active'=> str_contains($routeName, '.level.'),
+        ])>
         <a class="nav-link" href="{{ route('admin.level.index')}}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Niveau</span>
         </a>
       </li>
-      <li @class([
-        'nav-item',
-				'active' => $routeName == str_contains($routeName, '.sector.'),
-			])>
+      <li @class([ 'nav-item' , 'active'=> str_contains($routeName, '.sector.'),
+        ])>
         <a class="nav-link" href="{{ route('admin.sector.index')}}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Filière</span>
         </a>
       </li>
-      <li @class([
-        'nav-item',
-				'active' => $routeName == str_contains($routeName, '.speciality.'),
-			])>
+      <li @class([ 'nav-item' , 'active'=> str_contains($routeName, '.speciality.'),
+        ])>
         <a class="nav-link" href="{{ route('admin.speciality.index')}}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Spécialités</span>
         </a>
       </li>
-      <li @class([
-        'nav-item',
-				'active' => $routeName == str_contains($routeName, '.ue.'),
-			])>
+      <li @class([ 'nav-item' , 'active'=> str_contains($routeName, '.ue.'),
+        ])>
         <a class="nav-link" href="{{ route('admin.ue.index')}}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>unités d'enseignement</span>
         </a>
       </li>
-      <li @class([
-        'nav-item',
-				'active' => $routeName == str_contains($routeName, '.course.'),
-			])>
+      <li @class([ 'nav-item' , 'active'=> str_contains($routeName, '.course.'),
+        ])>
         <a class="nav-link" href="{{ route('admin.course.index')}}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Scéance de Cours</span>
         </a>
       </li>
-      <li @class([
-        'nav-item',
-				'active' => $routeName == str_contains($routeName, '.timeslot.'),
-			])>
+      
+      <li @class([ 'nav-item' , 'active'=> str_contains($routeName, '.classroom.'),
+        ])>
+        <a class="nav-link" href="{{ route('admin.classroom.index')}}">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Salle de classe</span>
+        </a>
+      </li>
+      <li @class([ 'nav-item' , 'active'=> str_contains($routeName, '.building.'),
+        ])>
+        <a class="nav-link" href="{{ route('admin.building.index')}}">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Batiments</span>
+        </a>
+      </li>
+      <li @class([ 'nav-item' , 'active'=> str_contains($routeName, '.timeslot.'),
+        ])>
         <a class="nav-link" href="{{ route('admin.timeslot.index')}}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Créneaux</span>
@@ -123,7 +121,7 @@
         Interface
       </div>
 
-    
+
 
       <!-- Divider -->
       <hr class="sidebar-divider">
@@ -133,7 +131,7 @@
         Addons
       </div>
 
-      
+
 
       <!-- Nav Item - Tables -->
       <li class="nav-item">
@@ -326,7 +324,7 @@
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
-                <img class="img-profile rounded-circle" src="{{ asset("images/icon.png") }}">
+                <img class="img-profile rounded-circle" src="{{ asset(" images/icon.png") }}">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

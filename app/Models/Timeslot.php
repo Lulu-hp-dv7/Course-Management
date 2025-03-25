@@ -11,4 +11,8 @@ class Timeslot extends Model
         'startTime',
         'endTime'
     ];
+
+    public function classrooms(){
+        return $this->belongsToMany(Classroom::class);
+    }
 }

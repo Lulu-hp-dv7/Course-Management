@@ -25,7 +25,7 @@ class LevelController extends Controller
     {
         return view('admin.levels.form', [
             'level' => new Level(),
-            'cycles'=> Cycle::select('id', 'name')->get()
+            'cycles'=> Cycle::pluck('name', 'id' )
         ]);
     }
 

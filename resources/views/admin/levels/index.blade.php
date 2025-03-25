@@ -26,6 +26,7 @@
                 </th>
             </tr>
             <tr>
+                <th>ID</th>
                 <th>Name</th>
                 <th>Number</th>
                 <th>Cycle ID</th>
@@ -36,6 +37,7 @@
         <tbody>
             @forelse ($levels as $post)
             <tr>
+                <td>{{ $post->id }}</td>
                 <td>{{ $post->name }}</td>
                 <td>{{ $post->number }}</td>
                 <td>{{ $post->cycle_id }}</td>

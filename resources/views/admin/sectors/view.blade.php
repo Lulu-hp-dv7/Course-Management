@@ -17,6 +17,15 @@
             <h5 class="card-title">{{ $sector->name_sec }}</h5>
             <p class="card-title">code: {{ $sector->code_sec }}</p>
             <p class="card-text">Créé Depuis: {{ $sector->created_at->format('d-m-Y') }}</p>
+            <ul class="list-group list-group-flush">
+                @foreach ($sector->specialities as $speciality)
+                    <li class="list-group-item">
+                        <a class="btn link-info" href="{{route("admin.speciality.show",$speciality->id)}}">
+                            {{$speciality->name_sp}}
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
             <h4 class="card-title">Niveau: </h4>
             <ul style="list-style: list">
                 @foreach ($levelOfSector as $id => $name)

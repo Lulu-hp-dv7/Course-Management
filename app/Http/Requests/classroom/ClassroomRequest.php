@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\sector;
+namespace App\Http\Requests\classroom;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SectorStoreRequest extends FormRequest
+class ClassroomRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,9 +22,10 @@ class SectorStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'code_sec' => 'required|min:2',
-            'name_sec' => 'required|min:4',
-            'desc_sec' => 'required|min:4',
+            'code_class' => 'required|min:2',
+            'type_class'=> 'required|min:4',
+            'capacity' => 'required|integer|min:1',
+            'building_id' => 'exists:buildings,id|required'
         ];
     }
 }

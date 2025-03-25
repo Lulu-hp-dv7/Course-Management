@@ -16,7 +16,7 @@
             <h5 class="card-title">{{ $speciality->code_sp }}</h5>
             <p class="card-title">Nom: {{ $speciality->name_sp }}</p>
             <p class="card-title">Type: {{ $speciality->type }}</p>
-            <p class="card-title">Filière: <a href="{{route("admin.cycle.show",$speciality->sector->id)}}">{{ $speciality->sector?->name_sec }}</a></p>
+            <p class="card-title">Filière: <a href="{{route("admin.sector.show",$speciality->sector->id)}}">{{ $speciality->sector?->name_sec }}</a></p>
             <p class="card-text">Créé Depuis: {{ $speciality->created_at->format('d-m-Y') }}</p>
         </div>
     </div>

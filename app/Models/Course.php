@@ -10,7 +10,7 @@ class Course extends Model
         'code_course',
         'name_course',
         'type_course',
-        'desc_course',
+        'desc_course'
     ];
 
     public function ues() {

@@ -53,22 +53,18 @@ class SpecialityController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Speciality $level)
+    public function edit(Speciality $speciality)
     {
-        $cycles = Sector::pluck('name','id');
-        return view('admin.specialities.form', compact('level', 'cycles'));
+        $sectors = Sector::pluck('name_sec','id');
+        return view('admin.specialities.form', compact('speciality', 'sectors'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Speciality $level)
+    public function update(SpecialityStoreRequest $request, Speciality $level)
     {
-        $level->update($request->validate([
-            'name' => 'required|min:4',
-            'number' => 'required|integer|min:0',
-            'cycle_id' => 'exists:cycles,id|required'
-        ]));
+        $level->update($request->validated());
 
         return redirect()->route('admin.speciality.index')
             ->with('success', 'level updated successfully');

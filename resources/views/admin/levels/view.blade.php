@@ -17,6 +17,18 @@
             <p class="card-title">Numero: {{ $level->number }}</p>
             <p class="card-title">Cycle: <a href="{{route("admin.cycle.show",$level->cycle->id)}}">{{ $level->cycle?->name }}</a></p>
             <p class="card-text">Créé Depuis: {{ $level->created_at->format('d-m-Y') }}</p>
+            <p>liste spécialités :</p>
+            
+            <p>liste filière niveau {{ $level->number }}:</p>
+            <ul class="list-group list-group-flush">
+                @foreach ($level->sectors as $sector)
+                    <li class="list-group-item">
+                        <a class="btn link-info" href="{{route("admin.sector.show",$sector->id)}}">
+                            {{$sector->name_sec}}
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
         </div>
     </div>
 </div>

@@ -17,4 +17,7 @@ class Sector extends Model
     public function levels() {
         return $this->belongsToMany(Level::class);
     }
+    public function specialities() {
+        return $this->hasMany(Speciality::class);
+    } 
 }

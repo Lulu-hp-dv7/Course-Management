@@ -57,14 +57,11 @@ class CycleController extends Controller
             // Process the file and import data
             // reading of document
             $spreadsheet = IOFactory::load($file->getPathname());
-            // get sheet 2 of document
+            // get sheet (Feuille) 1 of document
             $sheet1 = $spreadsheet->getSheet(0);
-            //dd($sheet1->getTitle());
+            // convert to array of ligne (TUPLE) (Feuille) 1 of document
             $dataSheet1  = $sheet1->toArray();
-            
-            //dd($dataSheet1);
 
-            //dd($dataSheet1 );
             $nb_level_max = 0;
             // LECTURE DES TUPLES SUR EXCEL
             foreach ($dataSheet1  as $key => $row) {
@@ -89,6 +86,7 @@ class CycleController extends Controller
                     ]);
                 }
             }
+            // import All SEMESTER
             for ($i=1; $i <= $nb_level_max * 2; $i++) { 
                 Semester::create([
                     'name_sem'=> 'Semestre '. $i, 

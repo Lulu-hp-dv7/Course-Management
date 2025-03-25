@@ -15,4 +15,9 @@ class Level extends Model
     public function cycle() {
         return $this->belongsTo(Cycle::class);
     }
+
+    public function sectors()
+    {
+        return $this->belongsToMany(Sector::class);
+    }
 }

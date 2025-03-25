@@ -5,20 +5,58 @@ namespace App\Http\Controllers;
 use App\Http\Requests\sector\SectorStoreRequest;
 use App\Models\Level;
 use App\Models\Sector;
+use Illuminate\Http\Request;
+use PhpOffice\PhpSpreadsheet\IOFactory;
 
 class SectorController extends Controller
 {
     public function export()
     {}
-    public function import()
-    {}
+    public function import(Request $request, SectorController $requestS)
+    {
+        
+        if ($request->hasFile('csv_file')) {
+            $request->validate([
+                'csv_file' => 'required|mimes:csv,xlsx,txt|max:2048'
+            ]);
+
+            $file = $request->file('csv_file');
+
+            // Process the file and import data
+            // reading of document
+            $spreadsheet = IOFactory::load($file->getPathname());
+            // get sheet (Feuille) 2 of document
+            $sheet2 = $spreadsheet->getSheet(1);
+            // convert to array of ligne (TUPLE) (Feuille) 1 of document
+            $dataSheet  = $sheet2->toArray();
+            // dd($dataSheet);
+            foreach ($dataSheet  as $key => $row) {
+                if ($key == 0) {
+                    continue;
+                }
+                $sector = Sector::create([
+                    'code_sec' => $row[0],
+                    'name_sec' => $row[1],
+                    'desc_sec' => $row[2]
+                ]);
+            }
+            return redirect()->route("admin.sector.index")
+            ->with('success', 'Importation avec succès');
+        }
+        return redirect()->route("admin.sector.index")
+            ->with('success', 'Echec de l\'importation');
+
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
         $sectors = Sector::orderBy("created_at", 'asc')->paginate(10);
-        return view("admin.sectors.index", ["sectors" => $sectors]);
+        
+        return view("admin.sectors.index", [
+            "sectors" => $sectors
+        ]);
     }
 
     /**
@@ -35,7 +73,7 @@ class SectorController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(\App\Http\Requests\sector\SectorStoreRequest $request)
+    public function store(SectorStoreRequest $request)
     {
 
         $sector = Sector::create($request->validated());
