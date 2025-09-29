@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BuildingController;
 use App\Http\Controllers\ClassroomController;
 use App\Http\Controllers\CourseController;
@@ -10,17 +11,26 @@ use App\Http\Controllers\SectorController;
 use App\Http\Controllers\SpecialityController;
 use App\Http\Controllers\TimeslotController;
 use App\Http\Controllers\UEController;
-use App\Models\Classroom;
 use Illuminate\Support\Facades\Route;
 
 
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('homepage');
+})->name('home');
 
-Route::prefix('admin')->name('admin.')->group(function () {
-    Route::get('dashbord', [AdminController::class, 'index'])->name('dashbord');
+Route::get('login', [AuthController::class, 'login'])
+    ->middleware('guest')
+    ->name('login');
+Route::post('login', [AuthController::class, 'signin'])->name('signin');
+Route::delete('logout', [AuthController::class, 'logout'])
+->middleware('auth')    
+->name('logout');
+
+Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
+    Route::get('register', [AuthController::class, 'register'])->name('register');
+    Route::post('signup', [AuthController::class, 'signup'])->name('signup');
+    Route::get('dashboard', [AdminController::class, 'index'])->name('dashboard');
     Route::resource('cycle', CycleController::class);
     Route::resource('level', LevelController::class);
     Route::resource('ue', UEController::class);

@@ -30,20 +30,20 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route ('home')}}">
         <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
+          <i class="fas fa-calendar-alt"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Emplois du temps <sup>2</sup></div>
+        <div class="sidebar-brand-text mx-3">EDT ISSTMADD</div>
       </a>
-      {{ request()->route()->getName() }}
+      
 
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
-      <li @class([ 'nav-item' , 'active'=> str_contains($routeName, '.dashbord') ])>
-        <a class="nav-link" href="{{ route('admin.dashbord')}}">
+      <li @class([ 'nav-item' , 'active'=> str_contains($routeName, '.dashboard') ])>
+        <a class="nav-link" href="{{ route('admin.dashboard')}}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span>
         </a>
@@ -113,32 +113,7 @@
         </a>
       </li>
 
-      <!-- Divider -->
-      <hr class="sidebar-divider">
 
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        Interface
-      </div>
-
-
-
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        Addons
-      </div>
-
-
-
-      <!-- Nav Item - Tables -->
-      <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Tables</span></a>
-      </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
@@ -323,8 +298,8 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
-                <img class="img-profile rounded-circle" src="{{ asset(" images/icon.png") }}">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">ADMINISTRATEUR</span>
+                <img class="img-profile rounded-circle" src="{{ asset("images/icon.png") }}">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -341,10 +316,10 @@
                   Activity Log
                 </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Logout
-                </a>
+                <button data-toggle="modal" data-target="#logoutModal"  type="submit" class="dropdown-item btn btn-primary btn-sm">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Logout
+                </button>
+                
               </div>
             </li>
 
@@ -352,7 +327,7 @@
 
         </nav>
         <!-- End of Topbar -->
-
+        
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
@@ -367,7 +342,7 @@
       <!-- End of Main Content -->
 
       <!-- Footer -->
-      <footer class="sticky-footer bg-white">
+      <footer class="sticky-footer bg-white mt-auto">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
             <span>Copyright &copy; App Web Emplois Du Temps ISSTMADD 2025</span>
@@ -401,7 +376,13 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
+          <form class="dropdown-item" data-toggle="modal" data-target="#logoutModal" id="logout-form" action="{{ route('logout') }}" method="POST" class="d-inline">
+            @csrf
+            @method('delete')
+            <button type="submit" class="btn btn-primary btn-sm">
+                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Logout
+            </button>
+          </form>
         </div>
       </div>
     </div>

@@ -2,6 +2,7 @@
 $type ??='';
 $name ??= '';
 $value ??= '';
+$classInput ??= '';
 $placeholder ??='';
 $required ??= false;
 @endphp
@@ -10,7 +11,7 @@ $required ??= false;
     <input 
         type="{{ $type }}" 
         name="{{ $name }}" 
-        class="form-control @error('{{ $name }}') is-invalid @enderror"
+        class="form-control {{ $classInput }} @error('{{ $name }}') is-invalid @enderror"
         value="{{ old( $name, $value) }}" 
         id="{{ $name }}"
         placeholder="{{ $placeholder }}"

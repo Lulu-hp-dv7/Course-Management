@@ -102,7 +102,7 @@ class CycleController extends Controller
    
     public function index()
     {
-        $cycles = Cycle::orderBy("created_at", 'desc')->paginate(20);
+        $cycles = Cycle::orderBy("created_at")->paginate(20);
         return view("admin.cycles.index", ["cycles" => $cycles]);
     }
 

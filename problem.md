@@ -28,3 +28,38 @@ Cycle 1 -- 1..* Niveau
 ### Diagramme de Classe
 
 ![Diagrame de cas d'utilisation](design\classDiagram.svg)
+
+### NOTES
+pas de créneau dans un emplois du temps qui se joiagnent
+
+### autres perspectives
+
+Intégration de l'intelligence artificielle dans la gestion académique :
+
+Utilisation de l'IA pour optimiser la planification des emplois du temps en fonction des contraintes des utilisateurs et des ressources disponibles.
+
+Systèmes d'aide à la décision pour l'administration, afin de mieux gérer les conflits d'horaires.
+
+Application mobile pour les utilisateurs :
+
+Développement d'une version mobile de la plateforme pour permettre aux étudiants et enseignants de consulter et modifier leurs plannings à tout moment.
+
+Notifications en temps réel des changements ou mises à jour de cours.
+
+Formation numérique des utilisateurs :
+
+Organisation de sessions de formation pour familiariser les enseignants et les étudiants à l'utilisation de la plateforme.
+
+Création de guides interactifs intégrés à l'application pour une prise en main simplifiée.
+
+Extension des fonctionnalités de la plateforme :
+
+Ajout d'un module de gestion des examens et des évaluations.
+
+Intégration de statistiques pour analyser l'utilisation de la plateforme et identifier les points à améliorer.
+
+Collaborations et partenariats :
+
+Mise en place de partenariats avec d'autres institutions pour partager les bonnes pratiques et enrichir les fonctionnalités.
+
+Utilisation des données recueillies pour élaborer des solutions adaptées aux évolutions académiques.
