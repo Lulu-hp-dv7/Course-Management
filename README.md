@@ -1,66 +1,166 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📌 Plateforme de gestion des cours et emplois du temps (ISSTMADD)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+![Made with Laravel](https://img.shields.io/badge/Laravel-11-red)
+![Database](https://img.shields.io/badge/Database-MySQL-blue)
+![Status](https://img.shields.io/badge/Status-En%20développement-orange)
+![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)
+[![GitHub issues](https://img.shields.io/github/issues/Lulu-hp-dv7/Course-Management)](https://github.com/Lulu-hp-dv7/Course-Management/issues)
+[![GitHub stars](https://img.shields.io/github/stars/Lulu-hp-dv7/Course-Management?style=social)](https://github.com/Lulu-hp-dv7/Course-Management/stargazers)
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 📑 Table des matières
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- [📝 Description](#-description)
+- [🚀 Fonctionnalités](#-fonctionnalités)
+- [🛠️ Stack technique](#️-stack-technique)
+- [⚙️ Prérequis](#️-prérequis)
+- [📂 Installation & Utilisation](#-installation--utilisation)
+- [📸 Captures d’écran](#-captures-décran)
+- [📌 Roadmap](#-roadmap)
+- [⚡ Démonstration rapide](#-démonstration-rapide)
+- [🤝 Contribution](#-contribution)
+- [👨‍💻 Auteur](#-auteur)
+- [📜 Licence](#-licence)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 📝 Description
 
-## Learning Laravel
+Ce projet est une application web de gestion des cours et emplois du temps, conçue pour faciliter l’organisation académique des enseignants et étudiants.  
+Elle permet d’ajouter, modifier et consulter les cours, avec un suivi automatisé des emplois du temps et un système d’import/export des données.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+---
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## 🚀 Fonctionnalités
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- ✅ CRUD complet des cours  
+- ✅ Gestion et affichage dynamique des emplois du temps  
+- ✅ Import / Export des données en **Excel**  
+- ✅ Interface responsive avec **Bootstrap 5**  
+- 🚧 Authentification des utilisateurs (admin/enseignants/étudiants)
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 🛠️ Stack technique
 
-### Premium Partners
+| Catégorie         | Technologie |
+|-------------------|-------------|
+| Framework         | Laravel 11  |
+| Frontend Template | [SB Admin 2](https://github.com/startbootstrap/startbootstrap-sb-admin-2) |
+| Base de données   | SQLite (Dev) / MySQL (Prod) |
+| Frontend Tools    | Bootstrap 5, npm, Git |
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+---
 
-## Contributing
+## ⚙️ Prérequis
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- PHP ≥ 8.2  
+- Composer  
+- Node.js ≥ 18  
+- MySQL / SQLite  
+- npm  
+- Git  
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## 📂 Installation & Utilisation
 
-## Security Vulnerabilities
+### 1. Cloner le repo
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+````bash
+git clone https://github.com/Lulu-hp-dv7/Course-Management.git
+````
 
-## License
+### 2. Aller dans le dossier du projet
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+````bash
+cd Course-Management
+````
+
+### 3. Installer les dépendances
+
+````bash
+npm install  
+composer install
+````
+
+### 4. Configurer l’environnement
+
+Créer un fichier '.env' à la racine du projet et renseigner vos paramètres de base de données. Comme l'exemple ci-apres :
+
+````dotenv
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=courses
+DB_USERNAME=root
+DB_PASSWORD=
+````
+
+### 5. Lancer le serveur
+
+````bash
+npm run dev
+php artisan serve
+````
+
+Le projet sera disponible sur **[(http://localhost:8000)](http://localhost:8000)**
+
+## 📸 Captures d’écran
+
+### APERÇU DE LA PLATEFORME
+
+![Page d’accueil](docs/home.png)
+
+### Page de connexion
+
+![Page d’accueil](docs/login.png)
+
+### Tableau de bord
+
+![Page d’accueil](docs/dashboard.png)
+
+### Page Deconnexion
+
+![Deconnexion](docs/logout-1.png)
+![connection](docs/logout-2.png)
+
+## 📌 Roadmap
+
+- ✅ CRUD complet des cours  
+- ✅ Gestion dynamique des emplois du temps  
+- ✅ Import / Export des données (Excel)  
+- 🚧 Authentification (admin / enseignants / étudiants)  
+- ⏳ Déploiement sur Docker  
+- ❌ Notifications par email  
+- 🔜 Optimisation des performances  
+
+## ⚡ Démonstration rapide
+
+````bash
+php artisan migrate --seed
+php artisan serve
+````
+
+## 🤝 Contribution
+
+Les contributions sont les bienvenues !
+Merci de forker le repo, créer une branche, proposer vos améliorations et soumettre une pull request..
+
+## 👨‍💻 Auteur
+
+- William D. Tchinda – Développeur Full Stack Junior / Aspirant DevOps  
+- [LinkedIn](https://www.linkedin.com/in/loo-a13a66346)  
+- [GitHub](https://github.com/Lulu-hp-dv7)  
+
+## 📜 Licence
+
+Ce projet est sous licence MIT – libre d’utilisation et de modification.
+
+````bash
+✅ Les badges ajoutés en haut donnent directement des infos :  
+- Licence  
+- Framework utilisé (Laravel + BootStrap)  
+- Base de données  
+- Statut du projet  
+````
